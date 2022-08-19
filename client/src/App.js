@@ -1,9 +1,50 @@
 import "./App.css";
+import { useState, useEffect } from "react";
+import { Button, Form } from "react-bootstrap";
 
 function App() {
+  const [post, setPost] = useState({
+    title: "",
+    description: "",
+  });
+
+  useEffect(() => {
+    console.log(post);
+  }, [post]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setPost((prev) => {
+      return { ...prev, [name]: value };
+    });
+  };
+
   return (
     <div className="App">
-      <h1>It is todo app</h1>
+      <nav className="d-flex flex-column justify-content-center align-items-center">
+        <h1>Todo app</h1>
+      </nav>
+      <div className="d-flex flex-column justify-content-center align-items-center">
+        <Form>
+          <Form.Group>
+            <Form.Control
+              name="title"
+              value={post.title}
+              onChange={handleChange}
+              placeholder="Title"
+              className="mb-3"
+            />
+            <Form.Control
+              name="description"
+              value={post.description}
+              onChange={handleChange}
+              placeholder="Description"
+              className="mb-3"
+            />
+          </Form.Group>
+        </Form>
+        <Button onClick={() => {}}>Create</Button>
+      </div>
     </div>
   );
 }
