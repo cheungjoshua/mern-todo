@@ -8,11 +8,21 @@ require("dotenv/config");
 const PASSWORD = process.env.DB_USER_PASSWORD;
 const USER = process.env.DB_USER;
 
-//mid ware
+// Middleware
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
+
+// Import Route
+const todosRoute = require("./routes/todos");
+
+// Routes
+app.get("/", (req, res) => {
+  res.send("It is root, nothing here!");
+});
+
+app.use("/todos", todosRoute);
 
 // Connect to DB
 mongoose.connect(
@@ -23,12 +33,7 @@ mongoose.connect(
   }
 );
 
-// Routes
-app.get("/", (req, res) => {
-  res.send("root ");
-});
-
-// Port
+// Listen Port
 const port = 8080;
 
 app.listen(port, () => {
