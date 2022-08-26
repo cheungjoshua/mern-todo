@@ -36,6 +36,28 @@ router.post("/", async (req, res) => {
   }
 });
 
+// UPDATE TODO - Complete or not
+router.patch("/:id", async (req, res) => {
+  try {
+    const updatedTodo = await Todo.updateOne(
+      { _id: req.params.id },
+      { $set: { completed: req.body.completed } }
+    );
+    console.log(req.body);
+    res.status(200).json(updatedTodo);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 // DELETE TODO
+router.delete("/:id", async (req, res) => {
+  try {
+    const deletedTodo = await Todo.remove({ _id: req.params.id });
+    res.status(200).json(deletedTodo);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;
