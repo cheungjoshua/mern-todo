@@ -5,17 +5,14 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 require("dotenv/config");
 
-const PASSWORD = process.env.DB_USER_PASSWORD;
-const USER = process.env.DB_USER;
+// Import Route
+const todosRoute = require("./routes/todos");
 
 // Middleware
 app.use(morgan("dev"));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-
-// Import Route
-const todosRoute = require("./routes/todos");
 
 // Routes
 app.get("/", (req, res) => {
@@ -25,13 +22,14 @@ app.get("/", (req, res) => {
 app.use("/todos", todosRoute);
 
 // Connect to DB
-mongoose.connect(
-  `mongodb+srv://${USER}:${PASSWORD}@cluster0.w7eg26k.mongodb.net/todoDB`,
-  { useNewUrlParser: true },
-  () => {
+mongoose
+  .connect(process.env.MONGO_URI, { useNewUrlParser: true })
+  .then(() => {
     console.log("conneted to DB");
-  }
-);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 // Listen Port
 const port = 8080;
