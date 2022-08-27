@@ -1,6 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Row, Col } from "react-bootstrap";
 
 function App() {
   const [post, setPost] = useState({
@@ -26,24 +26,30 @@ function App() {
       </nav>
       <div className="d-flex flex-column justify-content-center align-items-center">
         <Form>
-          <Form.Group>
-            <Form.Control
-              name="title"
-              value={post.title}
-              onChange={handleChange}
-              placeholder="Title"
-              className="mb-3"
-            />
-            <Form.Control
+          <Row>
+            <Col>
+              <Form.Group>
+                <Form.Control
+                  name="title"
+                  value={post.title}
+                  onChange={handleChange}
+                  placeholder="Title"
+                  className="mb-3"
+                />
+                {/* <Form.Control
               name="description"
               value={post.description}
               onChange={handleChange}
               placeholder="Description"
               className="mb-3"
-            />
-          </Form.Group>
+            /> */}
+              </Form.Group>
+            </Col>
+            <Col>
+              <Button onClick={() => {}}>Create</Button>
+            </Col>
+          </Row>
         </Form>
-        <Button onClick={() => {}}>Create</Button>
       </div>
     </div>
   );
