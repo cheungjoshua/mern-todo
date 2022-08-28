@@ -27,7 +27,7 @@ function App() {
       <div className="d-flex flex-column justify-content-center align-items-center">
         <Form>
           <Row>
-            <Col>
+            <Col sm={10}>
               <Form.Group>
                 <Form.Control
                   name="title"
@@ -45,7 +45,7 @@ function App() {
             /> */}
               </Form.Group>
             </Col>
-            <Col>
+            <Col sm={1}>
               <Button onClick={() => {}}>Create</Button>
             </Col>
           </Row>
