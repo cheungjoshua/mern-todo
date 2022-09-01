@@ -4,11 +4,13 @@ import { fetchTodos } from "../helper/fetchTodos";
 export const todosListContext = createContext();
 
 export default function TodoProvider({ children }) {
-  const [todosList, setTodosList] = useState();
+  const [todosList, setTodosList] = useState([]);
 
   useEffect(() => {
-    fetchTodos().then((data) => setTodosList(data));
-    console.log(todosList);
+    (async () => {
+      const data = await fetchTodos();
+      setTodosList(data);
+    })();
   }, []);
 
   const providerData = { todosList, setTodosList };

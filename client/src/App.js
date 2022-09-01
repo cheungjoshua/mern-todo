@@ -2,20 +2,10 @@ import "./App.css";
 import { useState } from "react";
 import { Button, Form, Row, Col } from "react-bootstrap";
 import Input from "./components/Input";
+import TodosList from "./components/TodosList";
 import TodoProvider from "./contexts/TodoProvider";
 
 function App() {
-  const [post, setPost] = useState({
-    todo: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setPost((prev) => {
-      return { ...prev, [name]: value };
-    });
-  };
-
   return (
     <div className="App">
       <TodoProvider>
@@ -30,7 +20,9 @@ function App() {
           </div>
         </Row>
         <Row>
-          <div className="todo-display__container"></div>
+          <div className="todo-display__container">
+            <TodosList />
+          </div>
         </Row>
       </TodoProvider>
     </div>
