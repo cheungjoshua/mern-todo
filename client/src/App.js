@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import { Button, Form, Row, Col } from "react-bootstrap";
+import Input from "./components/Input";
 import TodoProvider from "./contexts/TodoProvider";
 
 function App() {
@@ -25,31 +26,7 @@ function App() {
         </Row>
         <Row>
           <div className="form__container d-flex flex-column justify-content-center align-items-center">
-            <Form>
-              <Row>
-                <Col sm={10}>
-                  <Form.Group>
-                    <Form.Control
-                      name="todo"
-                      value={post.todo}
-                      onChange={handleChange}
-                      placeholder="TODO"
-                      className="mb-3"
-                    />
-                    {/* <Form.Control
-              name="description"
-              value={post.description}
-              onChange={handleChange}
-              placeholder="Description"
-              className="mb-3"
-            /> */}
-                  </Form.Group>
-                </Col>
-                <Col sm={1}>
-                  <Button onClick={() => {}}>Create</Button>
-                </Col>
-              </Row>
-            </Form>
+            <Input />
           </div>
         </Row>
         <Row>
