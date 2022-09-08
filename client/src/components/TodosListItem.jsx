@@ -12,7 +12,7 @@ export default function TodosListItem({ todo, setTodosList }) {
   // console.log(time);
   return (
     <>
-      <Row className="">
+      <Row className="justify-content-around">
         <Col sm={1}>
           <Button>DONE</Button>
         </Col>

@@ -20,9 +20,7 @@ function App() {
           </div>
         </Row>
         <Row>
-          <div className="todo-display__container">
-            <TodosList />
-          </div>
+          <TodosList />
         </Row>
       </TodoProvider>
     </div>
