@@ -53,7 +53,8 @@ router.patch("/:id", async (req, res) => {
 router.delete("/:id", async (req, res) => {
   try {
     const deletedTodo = await Todo.remove({ _id: req.params.id });
-    res.status(200).json(deletedTodo);
+    const todos = await Todo.find();
+    res.status(200).json(todos);
   } catch (err) {
     res.status(500).json(err);
   }

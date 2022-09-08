@@ -7,7 +7,7 @@ export default function TodosList() {
 
   const todos = todosList.map((item) => {
     return (
-      <TodosListItem key={item._id} todo={item} setTodosList={setTodosList} />
+      <TodosListItem key={item._id} data={item} setTodosList={setTodosList} />
     );
   });
 
