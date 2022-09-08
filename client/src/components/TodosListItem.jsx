@@ -9,7 +9,7 @@ export default function TodosListItem({ todo, setTodosList }) {
     hour12: false,
     timeZone: "PST",
   });
-  console.log(time);
+  // console.log(time);
   return (
     <>
       <Row className="">

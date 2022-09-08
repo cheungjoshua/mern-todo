@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useState, useContext } from "react";
 import { Button, Form, Row, Col } from "react-bootstrap";
+import { todosListContext } from "../contexts/TodoProvider.jsx";
 
 export default function Input() {
   const [post, setPost] = useState({
     todo: "",
   });
+
+  const { todosList, setTodosList } = useContext(todosListContext);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -13,8 +17,13 @@ export default function Input() {
     });
   };
 
-  const submitPost = () => {
-    console.log(post);
+  const submitPost = async () => {
+    try {
+      const postedTodo = await axios.post("/api/todos", post);
+      setTodosList([...todosList, postedTodo.data]);
+    } catch (err) {
+      console.log(err);
+    }
     setPost({
       todo: "",
     });
