@@ -18,10 +18,17 @@ export default function TodosListItem({ data, setTodosList }) {
     }
   };
 
-  const todoStatus = () => {
+  //Edit todo completed status
+  const todoStatus = async () => {
     let change = completed ? false : true;
-
-    console.log("id:", _id, "completed:", completed, "change to:", change);
+    try {
+      const newList = await axios.patch(`/api/todos/${_id}`, {
+        completed: change,
+      });
+      setTodosList(newList.data);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const editTodo = () => {
