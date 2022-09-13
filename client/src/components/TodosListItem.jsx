@@ -18,25 +18,27 @@ export default function TodosListItem({ data, setTodosList }) {
     }
   };
 
-  // const date = new Date(todo.date);
-  // const year = date.getFullYear();
-  // const time = date.toLocaleTimeString("en", {
-  //   timeStyle: "short",
-  //   hour12: false,
-  //   timeZone: "PST",
-  // });
-  // console.log(data);
+  const todoStatus = () => {
+    let change = completed ? false : true;
+
+    console.log("id:", _id, "completed:", completed, "change to:", change);
+  };
+
+  const editTodo = () => {
+    console.log("Edit clicked");
+  };
+
   return (
     <>
       <Row className="justify-content-around">
         <Col sm={1}>
-          <Button>{complete}</Button>
+          <Button onClick={todoStatus}>{complete}</Button>
         </Col>
         <Col sm={2}>
           <div>{todo}</div>
         </Col>
         <Col sm={1}>
-          <Button>EDIT</Button>
+          <Button onClick={editTodo}>EDIT</Button>
         </Col>
         <Col sm={1}>
           <Button onClick={removeTodo}>REMOVE</Button>

@@ -38,12 +38,13 @@ router.post("/", async (req, res) => {
 // UPDATE TODO - Complete or not
 router.patch("/:id", async (req, res) => {
   try {
+    console.log(req.body);
     const updatedTodo = await Todo.updateOne(
       { _id: req.params.id },
       { $set: req.body }
     );
-    console.log(req.body);
-    res.status(200).json(updatedTodo);
+    const todos = await Todo.find();
+    res.status(200).json(todos);
   } catch (err) {
     res.status(500).json(err);
   }
