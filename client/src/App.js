@@ -2,6 +2,7 @@ import "./App.css";
 import { useState } from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import Input from "./components/Input";
+import Search from "./components/Search";
 import TodosList from "./components/TodosList";
 import TodoProvider from "./contexts/TodoProvider";
 
@@ -19,6 +20,9 @@ function App() {
             <div className="form__container d-flex flex-column justify-content-center align-items-center">
               <Input />
             </div>
+          </Row>
+          <Row>
+            <Search />
           </Row>
           <Row>
             <TodosList />

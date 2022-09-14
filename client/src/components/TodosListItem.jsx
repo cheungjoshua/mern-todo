@@ -14,7 +14,6 @@ export default function TodosListItem({ data, setTodosList }) {
       // console.log(_id);
       const newList = await axios.delete(`/api/todos/${_id}`);
       setTodosList(newList.data);
-      console.log(newList);
     } catch (err) {
       console.log(err);
     }
