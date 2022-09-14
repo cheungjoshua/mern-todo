@@ -38,7 +38,7 @@ export default function TodosListItem({ data, setTodosList }) {
         <Col sm={1}>
           <Button onClick={todoStatus}>{complete}</Button>
         </Col>
-        <Col sm={2}>
+        <Col sm={5}>
           <div>{todo}</div>
         </Col>
         <Col sm={1}>
