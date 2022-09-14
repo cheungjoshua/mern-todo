@@ -18,15 +18,17 @@ export default function Input() {
   };
 
   const submitPost = async () => {
-    try {
-      const postedTodo = await axios.post("/api/todos", post);
-      setTodosList([...todosList, postedTodo.data]);
-    } catch (err) {
-      console.log(err);
+    if (post.todo !== "") {
+      try {
+        const postedTodo = await axios.post("/api/todos", post);
+        setTodosList([...todosList, postedTodo.data]);
+      } catch (err) {
+        console.log(err);
+      }
+      setPost({
+        todo: "",
+      });
     }
-    setPost({
-      todo: "",
-    });
   };
 
   return (
@@ -46,7 +48,9 @@ export default function Input() {
               </Form.Group>
             </Col>
             <Col sm={1}>
-              <Button onClick={submitPost}>Create</Button>
+              <Button onClick={submitPost} variant="outline-primary">
+                Create
+              </Button>
             </Col>
           </Row>
         </Container>

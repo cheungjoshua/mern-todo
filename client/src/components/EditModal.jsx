@@ -19,12 +19,14 @@ export default function EditModal({ show, onHide, oldTodo, _id }) {
   };
 
   const submitEditTodo = async () => {
-    try {
-      const newTodo = await axios.patch(`/api/todos/${_id}`, editTodo);
-      setTodosList(newTodo.data);
-      onHide();
-    } catch (err) {
-      console.log(err);
+    if (editTodo.todo !== "") {
+      try {
+        const newTodo = await axios.patch(`/api/todos/${_id}`, editTodo);
+        setTodosList(newTodo.data);
+        onHide();
+      } catch (err) {
+        console.log(err);
+      }
     }
   };
 
@@ -54,10 +56,14 @@ export default function EditModal({ show, onHide, oldTodo, _id }) {
         <Container>
           <Row>
             <Col>
-              <Button onClick={onHide}>Cancel</Button>
+              <Button onClick={onHide} variant="outline-secondary">
+                Cancel
+              </Button>
             </Col>
             <Col>
-              <Button onClick={submitEditTodo}>Submit</Button>
+              <Button onClick={submitEditTodo} variant="outline-success">
+                Submit
+              </Button>
             </Col>
           </Row>
         </Container>

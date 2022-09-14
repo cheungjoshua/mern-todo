@@ -57,6 +57,7 @@ export default function Search() {
                 onClick={() => {
                   setSearch({ todo: "" });
                 }}
+                variant="outline-primary"
               >
                 Clear
               </Button>

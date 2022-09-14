@@ -36,22 +36,27 @@ export default function TodosListItem({ data, setTodosList }) {
     <>
       <Row className="justify-content-around mb-2">
         <Col sm={1}>
-          <Button onClick={todoStatus}>{complete}</Button>
+          <Button onClick={todoStatus} variant="outline-success">
+            {complete}
+          </Button>
         </Col>
-        <Col sm={5}>
-          <div>{todo}</div>
+        <Col sm={5} className="bg-light rounded border border-secondary">
+          {todo}
         </Col>
         <Col sm={1}>
           <Button
             onClick={() => {
               setModalShow(true);
             }}
+            variant="outline-warning"
           >
             EDIT
           </Button>
         </Col>
         <Col sm={1}>
-          <Button onClick={removeTodo}>REMOVE</Button>
+          <Button onClick={removeTodo} variant="outline-danger">
+            REMOVE
+          </Button>
         </Col>
       </Row>
       <EditModal
