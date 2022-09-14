@@ -43,13 +43,6 @@ export default function Input() {
                   placeholder="TODO"
                   className="mb-3"
                 />
-                {/* <Form.Control
-    name="description"
-    value={post.description}
-    onChange={handleChange}
-    placeholder="Description"
-    className="mb-3"
-  /> */}
               </Form.Group>
             </Col>
             <Col sm={1}>

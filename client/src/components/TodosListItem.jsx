@@ -56,6 +56,7 @@ export default function TodosListItem({ data, setTodosList }) {
         </Col>
       </Row>
       <EditModal
+        _id={_id}
         oldTodo={todo}
         show={modalShow}
         onHide={() => {
