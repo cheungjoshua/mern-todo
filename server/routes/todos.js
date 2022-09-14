@@ -15,7 +15,6 @@ router.get("/", async (req, res) => {
 // GET SPECIFIC TODO
 router.get("/search", async (req, res) => {
   try {
-    console.log(req.query);
     const findItem = req.query.todo;
     const todo = await Todo.find({ todo: { $regex: findItem } });
     res.status(200).json(todo);
@@ -40,7 +39,6 @@ router.post("/", async (req, res) => {
 // UPDATE TODO - Complete or not
 router.patch("/:id", async (req, res) => {
   try {
-    console.log(req);
     const updatedTodo = await Todo.updateOne(
       { _id: req.params.id },
       { $set: req.body }

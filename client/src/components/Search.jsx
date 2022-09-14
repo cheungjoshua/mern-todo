@@ -14,7 +14,7 @@ export default function Search() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(search);
+
     setSearch((prev) => {
       return {
         ...prev,
