@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 
@@ -14,8 +15,16 @@ export default function Search() {
     });
   };
 
-  const submitSearch = () => {
-    console.log(search);
+  const submitSearch = async () => {
+    try {
+      console.log(search);
+      const newTodo = await axios.get(`/api/todos/search/`, {
+        params: search,
+      });
+      console.log(newTodo.data);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
