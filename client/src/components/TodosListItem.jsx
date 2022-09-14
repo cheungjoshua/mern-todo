@@ -1,9 +1,11 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import { Button, Row, Col } from "react-bootstrap";
+import EditModal from "./EditModal";
 
 export default function TodosListItem({ data, setTodosList }) {
   const { _id, completed, todo, date } = data;
+  const [modalShow, setModalShow] = useState(false);
 
   let complete = completed ? "Undo" : "Done";
 
@@ -31,10 +33,6 @@ export default function TodosListItem({ data, setTodosList }) {
     }
   };
 
-  const editTodo = () => {
-    console.log("Edit clicked");
-  };
-
   return (
     <>
       <Row className="justify-content-around">
@@ -45,12 +43,25 @@ export default function TodosListItem({ data, setTodosList }) {
           <div>{todo}</div>
         </Col>
         <Col sm={1}>
-          <Button onClick={editTodo}>EDIT</Button>
+          <Button
+            onClick={() => {
+              setModalShow(true);
+            }}
+          >
+            EDIT
+          </Button>
         </Col>
         <Col sm={1}>
           <Button onClick={removeTodo}>REMOVE</Button>
         </Col>
       </Row>
+      <EditModal
+        oldTodo={todo}
+        show={modalShow}
+        onHide={() => {
+          setModalShow(false);
+        }}
+      ></EditModal>
     </>
   );
 }

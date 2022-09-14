@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState, useContext } from "react";
-import { Button, Form, Row, Col } from "react-bootstrap";
+import { Button, Form, Row, Col, Container } from "react-bootstrap";
 import { todosListContext } from "../contexts/TodoProvider.jsx";
 
 export default function Input() {
@@ -32,29 +32,31 @@ export default function Input() {
   return (
     <>
       <Form>
-        <Row>
-          <Col sm={10}>
-            <Form.Group>
-              <Form.Control
-                name="todo"
-                value={post.todo}
-                onChange={handleChange}
-                placeholder="TODO"
-                className="mb-3"
-              />
-              {/* <Form.Control
+        <Container>
+          <Row>
+            <Col sm={10}>
+              <Form.Group>
+                <Form.Control
+                  name="todo"
+                  value={post.todo}
+                  onChange={handleChange}
+                  placeholder="TODO"
+                  className="mb-3"
+                />
+                {/* <Form.Control
     name="description"
     value={post.description}
     onChange={handleChange}
     placeholder="Description"
     className="mb-3"
   /> */}
-            </Form.Group>
-          </Col>
-          <Col sm={1}>
-            <Button onClick={submitPost}>Create</Button>
-          </Col>
-        </Row>
+              </Form.Group>
+            </Col>
+            <Col sm={1}>
+              <Button onClick={submitPost}>Create</Button>
+            </Col>
+          </Row>
+        </Container>
       </Form>
     </>
   );

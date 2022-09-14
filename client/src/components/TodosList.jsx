@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import TodosListItem from "./TodosListItem";
+import { Container } from "react-bootstrap";
 import { todosListContext } from "../contexts/TodoProvider.jsx";
 
 export default function TodosList() {
@@ -13,7 +14,9 @@ export default function TodosList() {
 
   return (
     <>
-      <div className="todo-display__container">{todos}</div>
+      <div className="todo-display__container">
+        <Container> {todos} </Container>
+      </div>
     </>
   );
 }
