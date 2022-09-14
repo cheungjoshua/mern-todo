@@ -9,6 +9,10 @@ export default function TodosListItem({ data, setTodosList }) {
 
   let complete = completed ? "Undo" : "Done";
 
+  let todoColor = completed
+    ? "text-center bg-secondary rounded border border-secondary text-white-50"
+    : "text-center text-white bg-success rounded border border-secondary";
+
   const removeTodo = async () => {
     try {
       // console.log(_id);
@@ -35,13 +39,8 @@ export default function TodosListItem({ data, setTodosList }) {
   return (
     <>
       <Row className="justify-content-around mb-2">
-        <Col sm={1}>
-          <Button onClick={todoStatus} variant="outline-success">
-            {complete}
-          </Button>
-        </Col>
-        <Col sm={5} className="bg-light rounded border border-secondary">
-          {todo}
+        <Col sm={5} className={todoColor} onClick={todoStatus}>
+          <h3> {todo}</h3>
         </Col>
         <Col sm={1}>
           <Button
