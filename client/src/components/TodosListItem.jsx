@@ -34,7 +34,7 @@ export default function TodosListItem({ data, setTodosList }) {
 
   return (
     <>
-      <Row className="justify-content-around">
+      <Row className="justify-content-around mb-2">
         <Col sm={1}>
           <Button onClick={todoStatus}>{complete}</Button>
         </Col>
