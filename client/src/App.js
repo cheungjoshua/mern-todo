@@ -22,7 +22,9 @@ function App() {
             </div>
           </Row>
           <Row>
-            <Search />
+            <div className="form__container d-flex flex-column justify-content-center align-items-center">
+              <Search />
+            </div>
           </Row>
           <Row>
             <TodosList />
