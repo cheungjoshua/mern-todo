@@ -48,8 +48,12 @@ export default function Input() {
               </Form.Group>
             </Col>
             <Col sm={1}>
-              <Button onClick={submitPost} variant="outline-primary">
-                Create
+              <Button
+                onClick={submitPost}
+                variant="outline-primary"
+                className="rounded-0"
+              >
+                ADD
               </Button>
             </Col>
           </Row>

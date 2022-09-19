@@ -15,7 +15,7 @@ export default function TodosList() {
   return (
     <>
       <div className="todo-display__container">
-        <Container> {todos} </Container>
+        <Container>{todos}</Container>
       </div>
     </>
   );

@@ -54,12 +54,13 @@ export default function Search() {
             </Col>
             <Col sm={1}>
               <Button
+                className="rounded-0"
                 onClick={() => {
                   setSearch({ todo: "" });
                 }}
                 variant="outline-primary"
               >
-                Clear
+                CLEAR
               </Button>
             </Col>
           </Row>

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Button, Row, Col } from "react-bootstrap";
+import { Form, Button, Row, Col } from "react-bootstrap";
 import EditModal from "./EditModal";
 
 export default function TodosListItem({ data, setTodosList }) {
@@ -39,6 +39,18 @@ export default function TodosListItem({ data, setTodosList }) {
   return (
     <>
       <Row className="justify-content-around mb-2">
+        <Col sm={1}>
+          <Form.Group>
+            <Form.Check type={"checkbox"}>
+              <Form.Check.Input
+                type={"checkbox"}
+                defaultChecked={completed}
+                onClick={todoStatus}
+              />
+            </Form.Check>
+          </Form.Group>
+        </Col>
+
         <Col sm={5} className={todoColor} onClick={todoStatus}>
           <h3> {todo}</h3>
         </Col>
