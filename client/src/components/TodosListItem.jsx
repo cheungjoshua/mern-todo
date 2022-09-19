@@ -51,7 +51,7 @@ export default function TodosListItem({ data, setTodosList }) {
           </Form.Group>
         </Col>
 
-        <Col sm={5} className={todoColor} onClick={todoStatus}>
+        <Col sm={5} className={todoColor}>
           <h3 style={{ textDecorationLine: `${crossLine}` }}> {todo}</h3>
         </Col>
         <Col sm={1}>
