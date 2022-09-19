@@ -7,7 +7,7 @@ export default function TodosListItem({ data, setTodosList }) {
   const { _id, completed, todo, date } = data;
   const [modalShow, setModalShow] = useState(false);
 
-  let complete = completed ? "Undo" : "Done";
+  let crossLine = completed ? "line-through" : "none";
 
   let todoColor = completed
     ? "text-center bg-secondary rounded border border-secondary text-white-50"
@@ -52,7 +52,7 @@ export default function TodosListItem({ data, setTodosList }) {
         </Col>
 
         <Col sm={5} className={todoColor} onClick={todoStatus}>
-          <h3> {todo}</h3>
+          <h3 style={{ textDecorationLine: `${crossLine}` }}> {todo}</h3>
         </Col>
         <Col sm={1}>
           <Button
