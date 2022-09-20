@@ -1,14 +1,14 @@
 # To do App
 
-Todo app using MERN stack
+Todo app with MERN stack(MongoDB, Express, React, Node)
 
 ### Home Page
 
-!["Screenshot Home"](https://github.com/cheungjoshua/mern-todo/client/docs/)
+!["Screenshot Home"](https://github.com/cheungjoshua/mern-todo/blob/main/client/doc/Screen%20Shot%202022-09-20%20at%2014.02.43.png?raw=true)
 
 ### Edit Todo Modal
 
-!["Screenshot Modal"](https://github.com/cheungjoshua/mern-todo/client/docs/)
+!["Screenshot Modal"](https://github.com/cheungjoshua/mern-todo/blob/main/client/doc/Screen%20Shot%202022-09-20%20at%2014.03.01.png?raw=true)
 
 ## App feature
 
